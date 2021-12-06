@@ -310,7 +310,6 @@
             pane: 'pane_wms_4'
         });
         bounds_group.addLayer(layer_wms_4);
-        map.addLayer(layer_wms_4);
 		
         var baseMaps = {
 			"Jawg Terrain Light": Jawg_Terrain,
@@ -318,7 +317,7 @@
 			"Esri Satellite": Esri_WorldImagery
 		};
             
-        L.control.layers(baseMaps,{'<img src="legend/ecosystem_service_sites_clipped_3.png" /> Ecosystem service site': layer_ecosystem_service_sites_clipped_3,'Postal code areas<br /><table><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_1200.png" /></td><td>0-20 %</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_20401.png" /></td><td>20-40 %</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_40602.png" /></td><td>40-60 %</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_60803.png" /></td><td>60-80 %</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_801004.png" /></td><td>80-100 %</td></tr></table>': layer_postal_codes_clipped_2}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/ecosystem_service_sites_clipped_3.png" /> Ecosystem service site': layer_ecosystem_service_sites_clipped_3,'Postal code areas<br /><table><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_1200.png" /></td><td>0-20 %</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_20401.png" /></td><td>20-40 %</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_40602.png" /></td><td>40-60 %</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_60803.png" /></td><td>60-80 %</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_801004.png" /></td><td>80-100 %</td></tr></table>': layer_postal_codes_clipped_2, 'Green areas<br /><table><tr><td style="text-align: center;"><img src="legend/ga_forests.png" /></td><td>Forests</td></tr><tr><td style="text-align: center;"><img src="legend/ga_gua.png" /></td><td>Green urban areas</td></tr><tr><td style="text-align: center;"><img src="legend/ga_herbac.png" /></td><td>Herbaceous vegetation</td></tr><tr><td style="text-align: center;"><img src="legend/ga_wetlands.png" /></td><td>Wetlands</td></tr></table>': layer_wms_4}).addTo(map);
         setBounds();
         L.control.scale().addTo(map);
         </script>
