@@ -117,103 +117,31 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">postinumer</th>\
-                        <td>' + (feature.properties['postinumer'] !== null ? autolinker.link(feature.properties['postinumer'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">nimi</th>\
+                        <th scope="row">Postal area name</th>\
                         <td>' + (feature.properties['nimi'] !== null ? autolinker.link(feature.properties['nimi'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">namn</th>\
-                        <td>' + (feature.properties['namn'] !== null ? autolinker.link(feature.properties['namn'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Postal code</th>\
+                        <td>' + (feature.properties['postinumer'] !== null ? autolinker.link(feature.properties['postinumer'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">he_vakiy</th>\
+                        <th scope="row">Population as of 2021</th>\
                         <td>' + (feature.properties['he_vakiy'] !== null ? autolinker.link(feature.properties['he_vakiy'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">he_naiset</th>\
-                        <td>' + (feature.properties['he_naiset'] !== null ? autolinker.link(feature.properties['he_naiset'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">he_miehet</th>\
-                        <td>' + (feature.properties['he_miehet'] !== null ? autolinker.link(feature.properties['he_miehet'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">t_g_area</th>\
+                        <th scope="row">Total green area (m2)</th>\
                         <td>' + (feature.properties['t_g_area'] !== null ? autolinker.link(feature.properties['t_g_area'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">ga_1000pop</th>\
+                        <th scope="row">Green area per 1000 inhabintants (km2)</th>\
                         <td>' + (feature.properties['ga_1000pop'] !== null ? autolinker.link(feature.properties['ga_1000pop'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">pop_1km2ga</th>\
-                        <td>' + (feature.properties['pop_1km2ga'] !== null ? autolinker.link(feature.properties['pop_1km2ga'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">shape_area</th>\
-                        <td>' + (feature.properties['shape_area'] !== null ? autolinker.link(feature.properties['shape_area'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">gre_shp_ra</th>\
+                        <th scope="row">Green area ratio (%)</th>\
                         <td>' + (feature.properties['gre_shp_ra'] !== null ? autolinker.link(feature.properties['gre_shp_ra'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['place_outd'] !== null ? autolinker.link(feature.properties['place_outd'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['place_spor'] !== null ? autolinker.link(feature.properties['place_spor'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['place_natu'] !== null ? autolinker.link(feature.properties['place_natu'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['place_hike'] !== null ? autolinker.link(feature.properties['place_hike'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['place_na_o'] !== null ? autolinker.link(feature.properties['place_na_o'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['place_rela'] !== null ? autolinker.link(feature.properties['place_rela'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['place_soci'] !== null ? autolinker.link(feature.properties['place_soci'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['place_beau'] !== null ? autolinker.link(feature.properties['place_beau'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['place_soun'] !== null ? autolinker.link(feature.properties['place_soun'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['place_smel'] !== null ? autolinker.link(feature.properties['place_smel'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['place_reli'] !== null ? autolinker.link(feature.properties['place_reli'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['place_emot'] !== null ? autolinker.link(feature.properties['place_emot'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['place_chil'] !== null ? autolinker.link(feature.properties['place_chil'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['place_pets'] !== null ? autolinker.link(feature.properties['place_pets'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['place_walk'] !== null ? autolinker.link(feature.properties['place_walk'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">justmax</th>\
-                        <td>' + (feature.properties['justmax'] !== null ? autolinker.link(feature.properties['justmax'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">top_</th>\
+                        <th scope="row">Most voted ecosystem service</th>\
                         <td>' + (feature.properties['top_'] !== null ? autolinker.link(feature.properties['top_'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
@@ -221,9 +149,8 @@
         }
 
         function style_postal_codes_clipped_2_0(feature) {
-            switch(String(feature.properties['top_'])) {
-                case 'place_emot':
-                    return {
+            if (feature.properties['gre_shp_ra'] >= 1.000000 && feature.properties['gre_shp_ra'] <= 20.000000 ) {
+                return {
                 pane: 'pane_postal_codes_clipped_2',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -233,12 +160,12 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(215,25,28,1.0)',
+                fillColor: 'rgba(255,255,204,1.0)',
                 interactive: true,
             }
-                    break;
-                case 'place_hike':
-                    return {
+            }
+            if (feature.properties['gre_shp_ra'] >= 20.000000 && feature.properties['gre_shp_ra'] <= 40.000000 ) {
+                return {
                 pane: 'pane_postal_codes_clipped_2',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -248,12 +175,12 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(228,75,51,1.0)',
+                fillColor: 'rgba(194,230,153,1.0)',
                 interactive: true,
             }
-                    break;
-                case 'place_chil':
-                    return {
+            }
+            if (feature.properties['gre_shp_ra'] >= 40.000000 && feature.properties['gre_shp_ra'] <= 60.000000 ) {
+                return {
                 pane: 'pane_postal_codes_clipped_2',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -263,12 +190,12 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(240,124,74,1.0)',
+                fillColor: 'rgba(120,198,121,1.0)',
                 interactive: true,
             }
-                    break;
-                case 'place_na_o':
-                    return {
+            }
+            if (feature.properties['gre_shp_ra'] >= 60.000000 && feature.properties['gre_shp_ra'] <= 80.000000 ) {
+                return {
                 pane: 'pane_postal_codes_clipped_2',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -278,12 +205,12 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(253,174,97,1.0)',
+                fillColor: 'rgba(49,163,84,1.0)',
                 interactive: true,
             }
-                    break;
-                case 'place_natu':
-                    return {
+            }
+            if (feature.properties['gre_shp_ra'] >= 80.000000 && feature.properties['gre_shp_ra'] <= 99.990000 ) {
+                return {
                 pane: 'pane_postal_codes_clipped_2',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -293,130 +220,9 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(254,201,128,1.0)',
+                fillColor: 'rgba(0,104,55,1.0)',
                 interactive: true,
             }
-                    break;
-                case 'place_outd':
-                    return {
-                pane: 'pane_postal_codes_clipped_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(254,228,160,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'place_pets':
-                    return {
-                pane: 'pane_postal_codes_clipped_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(255,255,191,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'place_reli':
-                    return {
-                pane: 'pane_postal_codes_clipped_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(227,244,182,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'place_smel':
-                    return {
-                pane: 'pane_postal_codes_clipped_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(199,232,173,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'place_soci':
-                    return {
-                pane: 'pane_postal_codes_clipped_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(171,221,164,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'place_soun':
-                    return {
-                pane: 'pane_postal_codes_clipped_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(128,191,171,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'place_spor':
-                    return {
-                pane: 'pane_postal_codes_clipped_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(86,161,179,1.0)',
-                interactive: true,
-            }
-                    break;
-                default:
-                    return {
-                pane: 'pane_postal_codes_clipped_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(113,113,113,1.0)',
-                interactive: true,
-            }
-                    break;
             }
         }
         map.createPane('pane_postal_codes_clipped_2');
