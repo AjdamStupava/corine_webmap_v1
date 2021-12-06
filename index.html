@@ -233,6 +233,7 @@
         });
         bounds_group.addLayer(layer_postal_codes_clipped_2);
         map.addLayer(layer_postal_codes_clipped_2);
+		
         function pop_ecosystem_service_sites_clipped_3(feature, layer) {
             layer.on({
                 mouseout: function(e) {
@@ -245,93 +246,6 @@
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['respondent'] !== null ? autolinker.link(feature.properties['respondent'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['createtion'] !== null ? autolinker.link(feature.properties['createtion'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['geoanswer'] !== null ? autolinker.link(feature.properties['geoanswer'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['place_outd'] !== null ? autolinker.link(feature.properties['place_outd'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['place_spor'] !== null ? autolinker.link(feature.properties['place_spor'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['place_natu'] !== null ? autolinker.link(feature.properties['place_natu'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['place_hike'] !== null ? autolinker.link(feature.properties['place_hike'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['place_na_o'] !== null ? autolinker.link(feature.properties['place_na_o'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['place_rela'] !== null ? autolinker.link(feature.properties['place_rela'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['place_soci'] !== null ? autolinker.link(feature.properties['place_soci'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['place_beau'] !== null ? autolinker.link(feature.properties['place_beau'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['place_soun'] !== null ? autolinker.link(feature.properties['place_soun'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['place_smel'] !== null ? autolinker.link(feature.properties['place_smel'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['place_reli'] !== null ? autolinker.link(feature.properties['place_reli'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['place_emot'] !== null ? autolinker.link(feature.properties['place_emot'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['place_chil'] !== null ? autolinker.link(feature.properties['place_chil'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['place_pets'] !== null ? autolinker.link(feature.properties['place_pets'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['place_walk'] !== null ? autolinker.link(feature.properties['place_walk'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['place_cult'] !== null ? autolinker.link(feature.properties['place_cult'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['place_biod'] !== null ? autolinker.link(feature.properties['place_biod'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['place_ever'] !== null ? autolinker.link(feature.properties['place_ever'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['place_wate'] !== null ? autolinker.link(feature.properties['place_wate'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['place_othe'] !== null ? autolinker.link(feature.properties['place_othe'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['place_ot_1'] !== null ? autolinker.link(feature.properties['place_ot_1'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['place_desc'] !== null ? autolinker.link(feature.properties['place_desc'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['how_often'] !== null ? autolinker.link(feature.properties['how_often'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['covid_oftr'] !== null ? autolinker.link(feature.properties['covid_oftr'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['arriving'] !== null ? autolinker.link(feature.properties['arriving'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['whenv2_1'] !== null ? autolinker.link(feature.properties['whenv2_1'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
