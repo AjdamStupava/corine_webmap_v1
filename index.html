@@ -29,16 +29,16 @@
         <script src="js/leaflet.rotatedMarker.js"></script>
         <script src="js/leaflet.pattern.js"></script>
         <script src="js/leaflet-hash.js"></script>
-		<script src="js/leaflet.markercluster.js"></script>
+	<script src="js/leaflet.markercluster.js"></script>
         <script src="js/Autolinker.min.js"></script>
         <script src="js/rbush.min.js"></script>
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
         <script src="js/leaflet-measure.js"></script>
         <script src="data/postal_codes_clipped_2.js"></script>
-		<script src="data/postal_codes_clipped_3.js"></script>
+	<script src="data/postal_codes_clipped_5.js"></script>
         <script src="data/ecosystem_service_sites_clipped_3.js"></script>
-		<script src="data/ecosystem_service_sites_clipped_0.js"></script>
+	<script src="data/ecosystem_service_sites_clipped_0.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -380,7 +380,7 @@
 			}
 		}
         map.createPane('pane_postal_codes_clipped_2');
-        map.getPane('pane_postal_codes_clipped_2').style.zIndex = 402;
+        map.getPane('pane_postal_codes_clipped_2').style.zIndex = 401;
         map.getPane('pane_postal_codes_clipped_2').style['mix-blend-mode'] = 'normal';
         var layer_postal_codes_clipped_2 = new L.geoJson(json_postal_codes_clipped_2, {
             attribution: '',
@@ -392,10 +392,147 @@
             style: style_postal_codes_clipped_2_0,
         });
         bounds_group.addLayer(layer_postal_codes_clipped_2);
-        map.addLayer(layer_postal_codes_clipped_2);
 		
 		
-		<!-- ecosystem services cluster points -->
+	<!-- second layer of postal codes, visualized as green area ratio -->
+		
+	function pop_postal_codes_clipped_5(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });	
+		
+	var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Postal area name</th>\
+                        <td>' + (feature.properties['nimi'] !== null ? autolinker.link(feature.properties['nimi'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Postal code</th>\
+                        <td>' + (feature.properties['postinumer'] !== null ? autolinker.link(feature.properties['postinumer'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Population as of 2021</th>\
+                        <td>' + (feature.properties['he_vakiy'] !== null ? autolinker.link(feature.properties['he_vakiy'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Total green area (km<sup>2</sup>)</th>\
+                        <td>' + (feature.properties['t_g_areakm'] !== null ? autolinker.link(feature.properties['t_g_areakm'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Green area per 1000 inhabintants (km<sup>2</sup>)</th>\
+                        <td>' + (feature.properties['ga_1000pop'] !== null ? autolinker.link(feature.properties['ga_1000pop'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Green area ratio (%)</th>\
+                        <td>' + (feature.properties['gre_shp_ra'] !== null ? autolinker.link(feature.properties['gre_shp_ra'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Most voted ecosystem service</th>\
+                        <td>' + (feature.properties['top_'] !== null ? autolinker.link(feature.properties['top_'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+	
+	function style_postal_codes_clipped_5_0(feature) {
+            if (feature.properties['gre_shp_ra'] >= 1.000000 && feature.properties['gre_shp_ra'] <= 20.000000 ) {
+                return {
+                pane: 'pane_postal_codes_clipped_5',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 0.5,
+                fillColor: 'rgba(255,255,204,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['gre_shp_ra'] >= 20.000000 && feature.properties['gre_shp_ra'] <= 40.000000 ) {
+                return {
+                pane: 'pane_postal_codes_clipped_5',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 0.5,
+                fillColor: 'rgba(194,230,153,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['gre_shp_ra'] >= 40.000000 && feature.properties['gre_shp_ra'] <= 60.000000 ) {
+                return {
+                pane: 'pane_postal_codes_clipped_5',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 0.5,
+                fillColor: 'rgba(120,198,121,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['gre_shp_ra'] >= 60.000000 && feature.properties['gre_shp_ra'] <= 80.000000 ) {
+                return {
+                pane: 'pane_postal_codes_clipped_5',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 0.5,
+                fillColor: 'rgba(49,163,84,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['gre_shp_ra'] >= 80.000000 && feature.properties['gre_shp_ra'] <= 99.990000 ) {
+                return {
+                pane: 'pane_postal_codes_clipped_5',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 0.5,
+                fillColor: 'rgba(0,104,55,1.0)',
+                interactive: true,
+            }
+            }
+        }
+		
+		map.createPane('pane_postal_codes_clipped_5');
+        map.getPane('pane_postal_codes_clipped_5').style.zIndex = 402;
+        map.getPane('pane_postal_codes_clipped_5').style['mix-blend-mode'] = 'normal';
+        var layer_postal_codes_clipped_5 = new L.geoJson(json_postal_codes_clipped_5, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_postal_codes_clipped_5',
+            layerName: 'layer_postal_codes_clipped_5',
+            pane: 'pane_postal_codes_clipped_5',
+            onEachFeature: pop_postal_codes_clipped_5,
+            style: style_postal_codes_clipped_5_0,
+        });
+        bounds_group.addLayer(layer_postal_codes_clipped_5);
+        map.addLayer(layer_postal_codes_clipped_5);
+		
+	<!-- ecosystem services cluster points -->
 		
 		function pop_ecosystem_service_sites_clipped_0(feature, layer) {
             var popupContent = '<table>\
@@ -465,12 +602,11 @@
 			"Esri Satellite": Esri_WorldImagery
 			};
 			
-        L.control.layers(baseMaps,{'<img src="legend/ecosystem_service_sites_clipped_3.png" /> ecosystem_service_sites_clipped': layer_ecosystem_service_sites_clipped_0,'Postal codes ecosystem services<br /><table><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_placeemot0.png" /></td><td>Emotional values</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_placehike1.png" /></td><td>Hiking</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_placechil2.png" /></td><td>Activity with children</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_placenao3.png" /></td><td>Observing nature</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_placenatu4.png" /></td><td>Being close to nature</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_placeoutd5.png" /></td><td>Being outdoors</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_placepets6.png" /></td><td>Activity with pets</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_placereli7.png" /></td><td>Religious values</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_placesmel8.png" /></td><td>Pleasant smells</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_placesoci9.png" /></td><td>Social activity</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_placesoun10.png" /></td><td>Pleasant sounds</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_placespor11.png" /></td><td>Sports</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_12.png" /></td><td></td></tr></table>': layer_postal_codes_clipped_2, 'Green areas<br /><table><tr><td style="text-align: center;"><img src="legend/ga_forests.png" /></td><td>Forests</td></tr><tr><td style="text-align: center;"><img src="legend/ga_gua.png" /></td><td>Green urban areas</td></tr><tr><td style="text-align: center;"><img src="legend/ga_herbac.png" /></td><td>Herbaceous vegetation</td></tr><tr><td style="text-align: center;"><img src="legend/ga_wetlands.png" /></td><td>Wetlands</td></tr></table>': layer_wms_4}).addTo(map);
-        <!--L.control.layers(baseMaps,{'<img src="legend/ecosystem_service_sites_clipped_3.png" /> Ecosystem service site': layer_ecosystem_service_sites_clipped_0, 'Postal codes ecosystem services<br /><table><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_placeemot0.png" /></td><td>Emotional values</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_placehike1.png" /></td><td>Hiking</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_placechil2.png" /></td><td>Activity with children</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_placenao3.png" /></td><td>Observing nature</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_placenatu4.png" /></td><td>Being close to nature</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_placeoutd5.png" /></td><td>Being outdoors</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_placepets6.png" /></td><td>Activity with pets</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_placereli7.png" /></td><td>Religious values</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_placesmel8.png" /></td><td>Pleasant smells</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_placesoci9.png" /></td><td>Social activity</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_placesoun10.png" /></td><td>Pleasant sounds</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_placespor11.png" /></td><td>Sports</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_12.png" /></td><td></td></tr></table>': layer_postal_codes_clipped_2,'Postal codes green area percentage<br /><table><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_1200.png" /></td><td>0-20 %</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_20401.png" /></td><td>20-40 %</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_40602.png" /></td><td>40-60 %</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_60803.png" /></td><td>60-80 %</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_801004.png" /></td><td>80-100 %</td></tr></table>': layer_postal_codes_clipped_3, 'Green areas<br /><table><tr><td style="text-align: center;"><img src="legend/ga_forests.png" /></td><td>Forests</td></tr><tr><td style="text-align: center;"><img src="legend/ga_gua.png" /></td><td>Green urban areas</td></tr><tr><td style="text-align: center;"><img src="legend/ga_herbac.png" /></td><td>Herbaceous vegetation</td></tr><tr><td style="text-align: center;"><img src="legend/ga_wetlands.png" /></td><td>Wetlands</td></tr></table>': layer_wms_4}).addTo(map); -->
+        L.control.layers(baseMaps,{'Postal codes ecosystem services<br /><table><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_placeemot0.png" /></td><td>Emotional values</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_placehike1.png" /></td><td>Hiking</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_placechil2.png" /></td><td>Activity with children</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_placenao3.png" /></td><td>Observing nature</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_placenatu4.png" /></td><td>Being close to nature</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_placeoutd5.png" /></td><td>Being outdoors</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_placepets6.png" /></td><td>Activity with pets</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_placereli7.png" /></td><td>Religious values</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_placesmel8.png" /></td><td>Pleasant smells</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_placesoci9.png" /></td><td>Social activity</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_placesoun10.png" /></td><td>Pleasant sounds</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_placespor11.png" /></td><td>Sports</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_12.png" /></td><td></td></tr></table>': layer_postal_codes_clipped_2, 'Postal codes green area percentage<br /><table><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_1200.png" /></td><td>0-20 %</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_20401.png" /></td><td>20-40 %</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_40602.png" /></td><td>40-60 %</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_60803.png" /></td><td>60-80 %</td></tr><tr><td style="text-align: center;"><img src="legend/postal_codes_clipped_2_801004.png" /></td><td>80-100 %</td></tr></table>': layer_postal_codes_clipped_5, 'Green areas<br /><table><tr><td style="text-align: center;"><img src="legend/ga_forests.png" /></td><td>Forests</td></tr><tr><td style="text-align: center;"><img src="legend/ga_gua.png" /></td><td>Green urban areas</td></tr><tr><td style="text-align: center;"><img src="legend/ga_herbac.png" /></td><td>Herbaceous vegetation</td></tr><tr><td style="text-align: center;"><img src="legend/ga_wetlands.png" /></td><td>Wetlands</td></tr></table>': layer_wms_4}).addTo(map);
 
-		setBounds();
-		L.control.scale({
-		position:'bottomleft'}).addTo(map);
+	setBounds();
+	L.control.scale({
+	position:'bottomleft'}).addTo(map);
 		
 	   </script>
     </body>
